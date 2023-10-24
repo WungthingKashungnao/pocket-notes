@@ -1,11 +1,17 @@
+import { useContext } from "react";
+import styles from "./app.module.css";
 import LeftScreen from "./components/LeftScreen/LeftScreen";
-import RightScreen from "./components/RightScreen.jsx/RightScreen";
+import PopUpCreate from "./components/PopUpCreate/PopUpCreate";
+import RightScreen from "./components/RightScreen/RightScreen";
+import { context } from "./context/ContextApi";
 
 function App() {
+  const { showPopUP, setShowPopUp } = useContext(context);
   return (
-    <div className="App">
+    <div className={styles.App}>
       <LeftScreen />
       <RightScreen />
+      {showPopUP ? <PopUpCreate /> : ""}
     </div>
   );
 }

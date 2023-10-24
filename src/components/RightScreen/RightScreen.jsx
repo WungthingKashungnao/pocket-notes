@@ -1,7 +1,7 @@
 import styles from "./rightscreen.module.css";
 
 const RightScreen = () => {
-  return <div className={styles.container}>Right</div>;
+  return <div className={styles.RightScreen}>Right</div>;
 };
 
 export default RightScreen;

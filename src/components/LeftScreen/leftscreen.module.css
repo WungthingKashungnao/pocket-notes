@@ -1,5 +1,33 @@
-.container {
+.LeftScreen {
   flex: 1;
   width: 100%;
   height: 100%;
+  padding: 1.5rem 1rem;
+}
+.LeftScreen h1 {
+  font-weight: 500;
+}
+.notesGroup {
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.createBtn {
+  border: none;
+  margin-top: 2rem;
+  width: 80%;
+  padding: 5px 0;
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
