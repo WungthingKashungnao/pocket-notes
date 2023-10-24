@@ -23,6 +23,7 @@ const PopUpCreate = () => {
     allGroups,
     setAllGroups,
     localData,
+    showPopUP,
   } = useContext(context);
 
   // in this useeffect we are updating the data in local storage
@@ -79,7 +80,10 @@ const PopUpCreate = () => {
     setColorState(color);
   };
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ display: `${showPopUP === true ? "flex" : "none"}` }}
+    >
       <form className={styles.createGroupPopUp} onSubmit={createNewGroup}>
         <h2>Create New Notes Group</h2>
         {/* group name start */}
