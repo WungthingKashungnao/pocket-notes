@@ -6,7 +6,7 @@ import RightScreen from "./components/RightScreen/RightScreen";
 import { context } from "./context/ContextApi";
 
 function App() {
-  const { showPopUP, setShowPopUp } = useContext(context);
+  const { showPopUP } = useContext(context);
   return (
     <div className={styles.App}>
       <LeftScreen />

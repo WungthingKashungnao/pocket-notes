@@ -109,3 +109,7 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+.error {
+  color: red;
+}
