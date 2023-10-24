@@ -27,9 +27,9 @@ const PopUpCreate = () => {
 
   // in this useeffect we are updating the data in local storage
   useEffect(() => {
-    if (allGroups.length === 0) {
-      setAllGroups(localData);
-    } else {
+    if (localData === null) {
+      localStorage.setItem("group", JSON.stringify(allGroups));
+    } else if (localData.length > 0) {
       localStorage.setItem("group", JSON.stringify(allGroups));
     }
   }, [allGroups]);
@@ -53,7 +53,12 @@ const PopUpCreate = () => {
         color: color,
         notes: notes,
       };
-      setAllGroups([...allGroups, newGroup]);
+      if (localData === null) {
+        setAllGroups([...allGroups, newGroup]);
+      } else if (localData.length > 0) {
+        setAllGroups([...localData, newGroup]);
+      }
+
       setGroupName("");
       setGroupColor("");
       setErr({ name: "", color: "" });

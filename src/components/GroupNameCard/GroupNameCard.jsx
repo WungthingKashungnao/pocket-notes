@@ -13,7 +13,7 @@ const GroupNameCard = ({ name, color }) => {
       }}
     >
       <div className={styles.roundedName} style={{ backgroundColor: color }}>
-        {name.length > 2 ? name.slice(0, 2).toUpperCase() : name.toUpperCase()}
+        {name?.length > 2 ? name.slice(0, 2).toUpperCase() : name.toUpperCase()}
       </div>
       <p>{name.toUpperCase()}</p>
     </div>
