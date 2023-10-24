@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { useState } from "react";
 
 export const context = createContext();
@@ -9,6 +9,15 @@ const ContextApi = ({ children }) => {
   const [groupColor, setGroupColor] = useState(""); //state to handel group color
   const [notes, setNotes] = useState([]); //state to handle notes
   const [allGroups, setAllGroups] = useState([]); //state to store all the groups
+  const [localData, setLocaData] = useState([]); //state to handle local browser data
+  const [selecteGroup, setSelectedGroup] = useState(""); //state for handling selected group name
+
+  // in this useeffect we are updating localdata
+  useEffect(() => {
+    const AllGroupsList = JSON.parse(localStorage.getItem("group"));
+    setLocaData(AllGroupsList);
+  }, [allGroups]);
+
   return (
     <context.Provider
       value={{
@@ -22,6 +31,10 @@ const ContextApi = ({ children }) => {
         setNotes,
         allGroups,
         setAllGroups,
+        localData,
+        setLocaData,
+        selecteGroup,
+        setSelectedGroup,
       }}
     >
       {children}

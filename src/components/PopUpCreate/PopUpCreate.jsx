@@ -1,8 +1,18 @@
 import styles from "./popupcreate.module.css";
 import { context } from "../../context/ContextApi";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const PopUpCreate = () => {
+  // state to handle error
+  const [err, setErr] = useState({
+    name: "",
+    color: "",
+  });
+
+  // state to handle color status
+  const [colorState, setColorState] = useState("");
+
+  // states from context api
   const {
     setShowPopUp,
     groupName,
@@ -12,11 +22,16 @@ const PopUpCreate = () => {
     notes,
     allGroups,
     setAllGroups,
+    localData,
   } = useContext(context);
 
-  // whenver allgroups is updated store the groups in the local storage
+  // in this useeffect we are updating the data in local storage
   useEffect(() => {
-    localStorage.setItem("group", JSON.stringify(allGroups));
+    if (allGroups.length === 0) {
+      setAllGroups(localData);
+    } else {
+      localStorage.setItem("group", JSON.stringify(allGroups));
+    }
   }, [allGroups]);
 
   // function to create new group
@@ -24,8 +39,14 @@ const PopUpCreate = () => {
     e.preventDefault();
     const name = groupName;
     const color = groupColor;
-    if (name === "" || color === "") {
-      alert("pick the choices");
+
+    // error handling
+    if (name === "" && name.length !== 0 && color === "") {
+      setErr({ name: "Enter a username", color: "Pick a color" });
+    } else if (name === "") {
+      setErr({ ...err, name: "Ener a name" });
+    } else if (color === "") {
+      setErr({ ...err, color: "Pick a color" });
     } else {
       const newGroup = {
         name: name,
@@ -35,7 +56,22 @@ const PopUpCreate = () => {
       setAllGroups([...allGroups, newGroup]);
       setGroupName("");
       setGroupColor("");
+      setErr({ name: "", color: "" });
     }
+  };
+
+  // function to remove pop up
+  const removePopUp = () => {
+    setGroupName("");
+    setGroupColor("");
+    setShowPopUp(false);
+    setErr({ name: "", color: "" });
+  };
+
+  // function to hanldeColorChange
+  const handleColorChange = (color) => {
+    setGroupColor(color);
+    setColorState(color);
   };
   return (
     <div className={styles.container}>
@@ -51,6 +87,7 @@ const PopUpCreate = () => {
             onChange={(e) => setGroupName(e.target.value)}
           />
         </div>
+        {err.name && <p className={styles.error}>{err.name}</p>}
         {/* group name end*/}
         {/* colour selection group start  */}
         <div className={styles.groupcolor}>
@@ -58,39 +95,70 @@ const PopUpCreate = () => {
           <div className={styles.colorGroup}>
             <div
               className={`${styles.colorIndividual} ${styles.colorPick1}`}
+              style={{
+                border: `${
+                  colorState === "#b38bfa" ? "2px solid black" : "none"
+                } `,
+              }}
               value={groupColor}
-              onClick={() => setGroupColor("#b38bfa")}
+              onClick={() => handleColorChange("#b38bfa")}
             ></div>
             <div
               className={`${styles.colorIndividual} ${styles.colorPick2}`}
+              style={{
+                border: `${
+                  colorState === "#ff79f2" ? "2px solid black" : "none"
+                } `,
+              }}
               value={groupColor}
-              onClick={() => setGroupColor("#ff79f2")}
+              onClick={() => handleColorChange("#ff79f2")}
             ></div>
             <div
               className={`${styles.colorIndividual} ${styles.colorPick3}`}
+              style={{
+                border: `${
+                  colorState === "#43e6fc" ? "2px solid black" : "none"
+                } `,
+              }}
               value={groupColor}
-              onClick={() => setGroupColor("#43e6fc")}
+              onClick={() => handleColorChange("#43e6fc")}
             ></div>
             <div
               className={`${styles.colorIndividual} ${styles.colorPick4}`}
+              style={{
+                border: `${
+                  colorState === "#f19576" ? "2px solid black" : "none"
+                } `,
+              }}
               value={groupColor}
-              onClick={() => setGroupColor("#f19576")}
+              onClick={() => handleColorChange("#f19576")}
             ></div>
             <div
               className={`${styles.colorIndividual} ${styles.colorPick5}`}
+              style={{
+                border: `${
+                  colorState === "#0047ff" ? "2px solid black" : "none"
+                } `,
+              }}
               value={groupColor}
-              onClick={() => setGroupColor("#0047ff")}
+              onClick={() => handleColorChange("#0047ff")}
             ></div>
             <div
               className={`${styles.colorIndividual} ${styles.colorPick6}`}
+              style={{
+                border: `${
+                  colorState === "#6691ff" ? "2px solid black" : "none"
+                } `,
+              }}
               value={groupColor}
-              onClick={() => setGroupColor("#6691ff")}
+              onClick={() => handleColorChange("#6691ff")}
             ></div>
           </div>
         </div>
+        {err.color && <p className={styles.error}>{err.color}</p>}
         {/* colour selection group end */}
         <button type="submit">Create</button>
-        <div className={styles.removePopup} onClick={() => setShowPopUp(false)}>
+        <div className={styles.removePopup} onClick={removePopUp}>
           X
         </div>
       </form>
