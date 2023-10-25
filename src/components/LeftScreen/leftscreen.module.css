@@ -103,6 +103,7 @@
   .createBtn {
     padding: 5px 10px;
     font-size: 1rem;
+    width: 85%;
   }
 }
 
@@ -116,11 +117,17 @@
   .reateBtn {
     font-size: 0.8rem;
   }
+  .createBtn {
+    width: 90%;
+  }
 }
 
 @media only screen and (max-width: 1060px) {
   .reateBtn {
     font-size: 0.5rem;
+  }
+  .createBtn {
+    width: 95%;
   }
 }
 @media only screen and (max-width: 940px) {

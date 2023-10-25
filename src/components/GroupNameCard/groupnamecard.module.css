@@ -21,3 +21,23 @@
   text-transform: capitalize;
   font-weight: 500;
 }
+
+@media only screen and (max-width: 890px) {
+  .roundedName {
+    width: 40px;
+    height: 40px;
+  }
+  .fullGroupName {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .roundedName {
+    width: 35px;
+    height: 35px;
+  }
+  .fullGroupName {
+    font-size: 0.8rem;
+  }
+}

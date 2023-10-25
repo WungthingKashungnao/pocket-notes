@@ -115,13 +115,50 @@
 }
 
 @media only screen and (max-width: 1080px) {
+  /* .createGroupPopUp h2 {
+    font-size: 1.5rem;
+  }
+  .groupName p {
+    font-size: 1.3rem;
+  }
+  .groupcolor span {
+    font-size: 1.3rem;
+  }
   .groupName input {
     font-size: 1rem;
+  } */
+  .createGroupPopUp {
+    width: 60%;
   }
 }
 @media only screen and (max-width: 965px) {
-  .colorIndividual {
+  /* .colorIndividual {
     width: 35px;
     height: 35px;
+  } */
+  .createGroupPopUp {
+    width: 65%;
   }
+}
+
+@media only screen and (max-width: 890px) {
+  .createGroupPopUp {
+    width: 70%;
+  }
+  /* .createGroupPopUp h2 {
+    font-size: 0.9rem;
+  }
+  .groupName p {
+    font-size: 0.7rem;
+  }
+  .groupcolor span {
+    font-size: 0.7rem;
+  }
+  .groupName input {
+    font-size: 0.5rem;
+  }
+  .colorIndividual {
+    width: 30px;
+    height: 30px;
+  } */
 }
