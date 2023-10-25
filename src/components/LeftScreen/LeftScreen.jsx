@@ -8,12 +8,14 @@ const LeftScreen = () => {
 
   return (
     <div className={styles.LeftScreen}>
-      <h1>Pocket Notes</h1>
-      <div className={styles.notesGroup}>
+      <div className={styles.brand}>
+        <h1>Pocket Notes</h1>
         <button className={styles.createBtn} onClick={() => setShowPopUp(true)}>
           <i className="fa-solid fa-plus"></i>
           <span>Create Notes group</span>
         </button>
+      </div>
+      <div className={styles.notesGroup}>
         <div className={styles.nameCardList}>
           {localData?.map((datas, idx) => (
             <div key={idx} className={styles.nameCard}>

@@ -15,4 +15,9 @@
   justify-content: center;
   align-items: center;
   color: white;
+  font-weight: 500;
+}
+.fullGroupName {
+  text-transform: capitalize;
+  font-weight: 500;
 }
