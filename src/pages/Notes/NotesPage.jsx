@@ -67,8 +67,8 @@ const NotesPage = () => {
 
       {/* stored notes section start */}
       <div className={styles.storedNotes}>
-        {groupData[0]?.notes.map((noteInfo) => (
-          <div className={styles.individualNotes}>
+        {groupData[0]?.notes.map((noteInfo, idx) => (
+          <div className={styles.individualNotes} key={idx}>
             <div className={styles.dateTime}>
               <span>{noteInfo.time}</span>
               <br />
@@ -88,6 +88,11 @@ const NotesPage = () => {
             className={styles.textSection}
             value={noteFromUser}
             onChange={(e) => setNoteFromUser(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSubmit(e);
+              }
+            }}
           ></textarea>
 
           <button className={styles.formBtn}>
