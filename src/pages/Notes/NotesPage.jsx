@@ -2,31 +2,52 @@ import styles from "./notes.module.css";
 import { context } from "../../context/ContextApi";
 import { useContext, useState } from "react";
 import buttonPic from "./buttonPic.png";
+import { useRef } from "react";
 
 const NotesPage = () => {
   const { selecteGroup } = useContext(context);
   const noteDateTime = new Date();
-  // state to store notes into group
-  const [noteFromUser, setNoteFromUser] = useState({
-    notes: "",
-    date: "",
-    time: "",
-  });
-  const localData = JSON.parse(localStorage.getItem("group"));
-  const groupData = localData.filter((val) => selecteGroup === val.name);
+  const controlRef = useRef();
 
+  const [noteFromUser, setNoteFromUser] = useState(""); // state to store notes into group
+  const localData = JSON.parse(localStorage.getItem("group")); //getting data from local browser
+
+  const groupData = localData.filter((val) => selecteGroup === val.name); //so that we deal only with the selected group
+  controlRef.current = groupData[0];
+
+  // function to handle submit start
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // getting time format
     const time = `${noteDateTime.getHours()}:${noteDateTime.getMinutes()} ${
       noteDateTime.getHours() > 12 ? "PM" : "AM"
     }`;
 
+    // getting month in string
     const month = noteDateTime.toLocaleString("default", { month: "long" });
+    // getting date fomat
     const noteDate = `${noteDateTime.getHours()} ${month} ${noteDateTime.getFullYear()}`;
 
-    const localData = JSON.parse(localStorage.getItem("group"));
-    localData.map((datas) => ({}));
+    // the desired data format I want to push
+    const newNote = {
+      notes: noteFromUser,
+      date: noteDate,
+      time: time,
+    };
+
+    // updating notes into local storage start
+    const browserData = JSON.parse(localStorage.getItem("group"));
+    browserData.map(
+      (datas) =>
+        controlRef.current.name === datas.name && datas.notes.push(newNote)
+    );
+    localStorage.setItem("group", JSON.stringify(browserData));
+    // updating notes into local storage end
+
+    setNoteFromUser(""); //clearing the textarea
   };
+  // function to handle submit end
 
   return (
     <div className={styles.notesContainer}>
@@ -46,19 +67,16 @@ const NotesPage = () => {
 
       {/* stored notes section start */}
       <div className={styles.storedNotes}>
-        <div className={styles.individualNotes}>
-          <div className={styles.dateTime}>
-            <span>10:10 Am</span>
-            <br />
-            <span>9 March 2023</span>
+        {groupData[0]?.notes.map((noteInfo) => (
+          <div className={styles.individualNotes}>
+            <div className={styles.dateTime}>
+              <span>{noteInfo.time}</span>
+              <br />
+              <span>{noteInfo.date}</span>
+            </div>
+            <div className={styles.localNotes}>{noteInfo.notes}</div>
           </div>
-          <div className={styles.localNotes}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-            sapiente labore dignissimos sed autem nobis provident ratione totam,
-            voluptas iusto atque quos! Pariatur, nostrum sapiente quam placeat
-            ad animi sit.
-          </div>
-        </div>
+        ))}
       </div>
       {/* stored notes section end */}
 
@@ -68,10 +86,8 @@ const NotesPage = () => {
           <textarea
             placeholder="Enter your text here..."
             className={styles.textSection}
-            value={noteFromUser.notes}
-            onChange={(e) =>
-              setNoteFromUser({ ...noteFromUser, notes: e.target.value })
-            }
+            value={noteFromUser}
+            onChange={(e) => setNoteFromUser(e.target.value)}
           ></textarea>
 
           <button className={styles.formBtn}>
