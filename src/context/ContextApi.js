@@ -11,6 +11,7 @@ const ContextApi = ({ children }) => {
   const [allGroups, setAllGroups] = useState([]); //state to store all the groups
   const [localData, setLocaData] = useState([]); //state to handle local browser data
   const [selecteGroup, setSelectedGroup] = useState(""); //state for handling selected group name
+  const [toggleHomeNotes, setToggleHomeNotes] = useState(false); //state to toggle between home and notes page
 
   // in this useeffect we are updating localdata
   useEffect(() => {
@@ -35,6 +36,8 @@ const ContextApi = ({ children }) => {
         setLocaData,
         selecteGroup,
         setSelectedGroup,
+        toggleHomeNotes,
+        setToggleHomeNotes,
       }}
     >
       {children}

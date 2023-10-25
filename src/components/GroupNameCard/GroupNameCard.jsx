@@ -2,20 +2,25 @@ import { useContext } from "react";
 import styles from "./groupnamecard.module.css";
 import { context } from "../../context/ContextApi";
 
-const GroupNameCard = ({ name, color }) => {
+const GroupNameCard = ({ data }) => {
   const { selecteGroup, setSelectedGroup } = useContext(context);
   return (
     <div
       className={styles.container}
-      onClick={() => setSelectedGroup(name)}
+      onClick={() => setSelectedGroup(data.name)}
       style={{
-        backgroundColor: `${name === selecteGroup ? "#F7ECDC" : "white"} `,
+        backgroundColor: `${data.name === selecteGroup ? "#F7ECDC" : "white"} `,
       }}
     >
-      <div className={styles.roundedName} style={{ backgroundColor: color }}>
-        {name?.length > 2 ? name.slice(0, 2).toUpperCase() : name.toUpperCase()}
+      <div
+        className={styles.roundedName}
+        style={{ backgroundColor: data.color }}
+      >
+        {data.name?.length > 2
+          ? data.name.slice(0, 2).toUpperCase()
+          : data.name.toUpperCase()}
       </div>
-      <p className={styles.fullGroupName}>{name}</p>
+      <p className={styles.fullGroupName}>{data.name}</p>
     </div>
   );
 };

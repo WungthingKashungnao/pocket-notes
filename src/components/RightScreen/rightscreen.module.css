@@ -4,3 +4,8 @@
   height: 100%;
   background-color: #f7ecdc;
 }
+@media only screen and (max-width: 768px) {
+  .RightScreen {
+    display: none;
+  }
+}

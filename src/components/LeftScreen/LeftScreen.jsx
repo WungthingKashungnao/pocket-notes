@@ -4,7 +4,7 @@ import { useContext } from "react";
 import GroupNameCard from "../GroupNameCard/GroupNameCard";
 
 const LeftScreen = () => {
-  const { setShowPopUp, localData } = useContext(context);
+  const { setShowPopUp, localData, setToggleHomeNotes } = useContext(context);
 
   return (
     <div className={styles.LeftScreen}>
@@ -16,10 +16,13 @@ const LeftScreen = () => {
         </button>
       </div>
       <div className={styles.notesGroup}>
-        <div className={styles.nameCardList}>
+        <div
+          className={styles.nameCardList}
+          onClick={() => setToggleHomeNotes(true)}
+        >
           {localData?.map((datas, idx) => (
             <div key={idx} className={styles.nameCard}>
-              <GroupNameCard name={datas.name} color={datas.color} />
+              <GroupNameCard data={datas} />
             </div>
           ))}
         </div>
