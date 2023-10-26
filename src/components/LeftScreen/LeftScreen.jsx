@@ -7,10 +7,7 @@ const LeftScreen = () => {
   const { setShowPopUp, localData, setToggleHomeNotes } = useContext(context);
 
   return (
-    <div
-      className={styles.LeftScreen}
-      // style={{ display: `${mobileToggle ? "none" : ""}` }}
-    >
+    <div className={styles.LeftScreen}>
       <div className={styles.brand}>
         <h1>Pocket Notes</h1>
         <button className={styles.createBtn} onClick={() => setShowPopUp(true)}>

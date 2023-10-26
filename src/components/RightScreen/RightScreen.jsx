@@ -7,10 +7,7 @@ import NotesPage from "../../pages/Notes/NotesPage";
 const RightScreen = () => {
   const { toggleHomeNotes } = useContext(context);
   return (
-    <div
-      className={styles.RightScreen}
-      // style={{ display: `${mobileToggle ? "block" : ""}` }}
-    >
+    <div className={styles.RightScreen}>
       {toggleHomeNotes ? <NotesPage /> : <HomePage />}
     </div>
   );

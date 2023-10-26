@@ -13,7 +13,7 @@ const NotesPage = () => {
   const [noteFromUser, setNoteFromUser] = useState(""); // state to store notes into group
   const localData = JSON.parse(localStorage.getItem("group")); //getting data from local browser
 
-  const groupData = localData.filter((val) => selecteGroup === val.name); //so that we deal only with the selected group
+  const groupData = localData?.filter((val) => selecteGroup === val.name); //so that we deal only with the selected group
   controlRef.current = groupData[0];
 
   // function to handle submit start
