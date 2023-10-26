@@ -4,6 +4,7 @@
   height: 100%;
   background-color: white;
   display: none;
+  font-family: "Roboto", sans-serif;
 }
 @media only screen and (max-width: 768px) {
   .RightScreen {

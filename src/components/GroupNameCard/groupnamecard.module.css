@@ -6,6 +6,7 @@
   width: 100%;
   padding: 1rem;
   cursor: pointer;
+  font-family: "Roboto", sans-serif;
 }
 .roundedName {
   width: 50px;

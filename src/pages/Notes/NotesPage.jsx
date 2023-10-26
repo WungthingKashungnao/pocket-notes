@@ -91,7 +91,7 @@ const NotesPage = () => {
       <div className={styles.noteTakingArea}>
         <form onSubmit={handleSubmit}>
           <textarea
-            placeholder="Enter your text here..."
+            placeholder="Enter your text here......."
             className={styles.textSection}
             value={noteFromUser}
             onChange={(e) => setNoteFromUser(e.target.value)}
