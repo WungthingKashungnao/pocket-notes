@@ -23,7 +23,7 @@
   width: 100%;
   /* height: 100%; */
   height: 100vh;
-  display: flex;
+  display: none;
   flex-direction: column;
   overflow-y: auto;
   /* padding: 1.5rem 1rem; */
@@ -161,9 +161,8 @@
   }
 }
 
-/* mobile start */
 @media only screen and (max-width: 768px) {
   .LeftScreen {
-    display: none;
+    display: flex;
   }
 }

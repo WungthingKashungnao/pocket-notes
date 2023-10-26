@@ -3,11 +3,17 @@ import styles from "./groupnamecard.module.css";
 import { context } from "../../context/ContextApi";
 
 const GroupNameCard = ({ data }) => {
-  const { selecteGroup, setSelectedGroup } = useContext(context);
+  const { selecteGroup, setSelectedGroup, setMobileToggle } =
+    useContext(context);
+
+  const handleToggleAndSelectedGroup = () => {
+    setSelectedGroup(data.name);
+    setMobileToggle(true);
+  };
   return (
     <div
       className={styles.container}
-      onClick={() => setSelectedGroup(data.name)}
+      onClick={handleToggleAndSelectedGroup}
       style={{
         backgroundColor: `${data.name === selecteGroup ? "#F7ECDC" : "white"} `,
       }}

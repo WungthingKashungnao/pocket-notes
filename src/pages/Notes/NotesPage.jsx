@@ -3,9 +3,10 @@ import { context } from "../../context/ContextApi";
 import { useContext, useState } from "react";
 import buttonPic from "./buttonPic.png";
 import { useRef } from "react";
+import rightArrow from "./rightArrow.png";
 
 const NotesPage = () => {
-  const { selecteGroup } = useContext(context);
+  const { selecteGroup, setMobileToggle } = useContext(context);
   const noteDateTime = new Date();
   const controlRef = useRef();
 
@@ -53,6 +54,12 @@ const NotesPage = () => {
     <div className={styles.notesContainer}>
       {/* header start */}
       <header className={styles.header}>
+        <div
+          className={styles.rightArrow}
+          onClick={() => setMobileToggle(false)}
+        >
+          <img src={rightArrow} alt="" />
+        </div>
         <div
           className={styles.roundedName}
           style={{ backgroundColor: groupData[0].color }}

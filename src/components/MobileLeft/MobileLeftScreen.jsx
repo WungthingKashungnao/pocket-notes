@@ -1,15 +1,16 @@
-import styles from "./leftscreen.module.css";
+import styles from "./mobileleftscreen.module.css";
 import { context } from "../../context/ContextApi";
 import { useContext } from "react";
 import GroupNameCard from "../GroupNameCard/GroupNameCard";
 
-const LeftScreen = () => {
-  const { setShowPopUp, localData, setToggleHomeNotes } = useContext(context);
+const MobileLeftScreen = () => {
+  const { setShowPopUp, localData, setToggleHomeNotes, mobileToggle } =
+    useContext(context);
 
   return (
     <div
       className={styles.LeftScreen}
-      // style={{ display: `${mobileToggle ? "none" : ""}` }}
+      style={{ display: `${mobileToggle ? "none" : ""}` }}
     >
       <div className={styles.brand}>
         <h1>Pocket Notes</h1>
@@ -34,4 +35,4 @@ const LeftScreen = () => {
   );
 };
 
-export default LeftScreen;
+export default MobileLeftScreen;
