@@ -38,7 +38,7 @@
   display: block;
   width: 70%;
   border: 2px solid #cccccc;
-  border-radius: 30px;
+  border-radius: 20px;
   outline: none;
   padding: 0.6rem 2rem;
   font-size: 1.4rem;
@@ -115,27 +115,11 @@
 }
 
 @media only screen and (max-width: 1080px) {
-  /* .createGroupPopUp h2 {
-    font-size: 1.5rem;
-  }
-  .groupName p {
-    font-size: 1.3rem;
-  }
-  .groupcolor span {
-    font-size: 1.3rem;
-  }
-  .groupName input {
-    font-size: 1rem;
-  } */
   .createGroupPopUp {
     width: 60%;
   }
 }
 @media only screen and (max-width: 965px) {
-  /* .colorIndividual {
-    width: 35px;
-    height: 35px;
-  } */
   .createGroupPopUp {
     width: 65%;
   }
@@ -145,20 +129,172 @@
   .createGroupPopUp {
     width: 70%;
   }
-  /* .createGroupPopUp h2 {
-    font-size: 0.9rem;
+}
+
+/* on mobile sizes*/
+@media only screen and (max-width: 768px) {
+  .createGroupPopUp h2 {
+    font-size: 1.2rem;
   }
-  .groupName p {
-    font-size: 0.7rem;
-  }
-  .groupcolor span {
-    font-size: 0.7rem;
+  .groupName {
+    gap: 1rem;
   }
   .groupName input {
-    font-size: 0.5rem;
+    font-size: 1rem;
+  }
+  .groupName p {
+    font-size: 1rem;
+  }
+  .groupcolor span {
+    font-size: 1rem;
   }
   .colorIndividual {
     width: 30px;
     height: 30px;
-  } */
+  }
+  .createGroupPopUp button {
+    font-size: 1rem;
+  }
+  .createGroupPopUp button {
+    align-self: center;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 644px) {
+  .createGroupPopUp {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 644px) {
+  .createGroupPopUp {
+    width: 80%;
+  }
+  .createGroupPopUp h2 {
+    font-size: 1.1rem;
+  }
+  .groupName {
+    gap: 0.9rem;
+  }
+  .groupName input {
+    font-size: 0.9rem;
+  }
+  .groupName p {
+    font-size: 0.9rem;
+  }
+  .groupcolor {
+    gap: 1rem;
+  }
+  .groupcolor span {
+    font-size: 0.9rem;
+  }
+  .colorGroup {
+    gap: 0.5rem;
+  }
+  .colorIndividual {
+    width: 28px;
+    height: 28px;
+  }
+  .createGroupPopUp button {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 441px) {
+  .createGroupPopUp {
+    width: 85%;
+    height: 35%;
+  }
+  .createGroupPopUp h2 {
+    font-size: 1rem;
+  }
+  .groupName {
+    gap: 0.8rem;
+  }
+  .groupName input {
+    font-size: 0.8rem;
+  }
+  .groupName p {
+    font-size: 0.8rem;
+  }
+  .groupcolor {
+    gap: 0.9rem;
+  }
+  .groupcolor span {
+    font-size: 0.8rem;
+  }
+  .colorGroup {
+    gap: 0.5rem;
+  }
+  .colorIndividual {
+    width: 28px;
+    height: 28px;
+  }
+  .createGroupPopUp button {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 441px) {
+  .createGroupPopUp {
+    width: 90%;
+  }
+  .createGroupPopUp h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .groupName input {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+  .groupName p {
+    font-size: 0.9rem;
+  }
+  .groupcolor {
+    gap: 0.8rem;
+  }
+  .groupcolor span {
+    font-size: 0.9rem;
+  }
+  .colorGroup {
+    gap: 0.5rem;
+  }
+  .colorIndividual {
+    width: 28px;
+    height: 28px;
+  }
+  .createGroupPopUp button {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .createGroupPopUp h2 {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  .groupName {
+    gap: 0.5rem;
+  }
+  .groupName p {
+    font-size: 0.9rem;
+  }
+  .groupcolor {
+    gap: 0.5rem;
+  }
+  .groupcolor span {
+    font-size: 0.9rem;
+  }
+  .colorGroup {
+    gap: 0.3rem;
+  }
+  .colorIndividual {
+    width: 28px;
+    height: 28px;
+  }
+  .createGroupPopUp button {
+    font-size: 0.9rem;
+  }
 }
